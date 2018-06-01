@@ -1,0 +1,13 @@
+
+img {
+    height:100%;
+    width:100%;
+}
+
+.nav, .pagination, .carousel, .panel-title a { 
+    cursor: pointer;
+ }
+ #brandImg {
+     height: 50px;
+     width: 50px;
+ }
