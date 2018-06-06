@@ -1,81 +1,104 @@
 export class HomeController {
+   constructor($scope, $q, $timeout) {
 
-  constructor($q) {
-    this.message = 'hello world';
-    this.list = ['Car', 'Bike', 'Legs'];
-    this.$q = $q;
-    this.message = 'about page';
-    this.i = 0;
-    this.txt = "hello world";
+     $scope.i = 0;
+     $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
+     $scope.speed = 100; /* The speed/duration of the effect in milliseconds */
 
-    this.speed = 500;
+     var deferred = $q.defer();
+   
+    
+     $scope.typeWriter = function (text, id) {
 
-    var scope = this;
-    scope.firstName = "Jesse Jones";
-    scope.Title = "Web Developer";
-    scope.Title2 = "Front End/ Back End Developer";
+      
+      
+       if ($scope.i < text.length) {
+         document.getElementById(id).innerHTML += text.charAt($scope.i);
+         $scope.i++;
 
+         $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
+       } else {
+         $scope.i=0;
+         deferred.resolve(true);
+         
+       }
 
+       return deferred.promise;
+     }
+     $scope.typeWriter("Jesse Jones", "Name").then(function(){
 
-
-
-
-    scope.wordFunction = function (text, id) {
-      var deferred = scope.$q.defer();
-
-      if (scope.i < text.length) {
-        document.getElementById(id).innerHTML += text.charAt(scope.i);
-        scope.i++;
-        setTimeout(scope.wordFunction(text, id), scope.speed);
-      }
-      else {
-        deferred.resolve(true);
-      }
-
-      return deferred.promise;
-    }
-    //onit type out first name then title then title 2
-    scope.wordFunction(scope.firstName, "Name").then(function () {
-      scope.i = 0;
-      setTimeout(scope.wordFunction(scope.Title, "Title").then(function () {
-        scope.i = 0;
-        setTimeout(scope.wordFunction(scope.Title2, "Title2"), 500);
-      }), 500);
-    });
-
-  }
-
+      deferred = $q.defer();
+      $scope.typeWriter("Web Developer", "Title").then(function(){
+        deferred = $q.defer();
+        $scope.typeWriter("Front End / Back End Developer", "Title2")
+      });
+    }, function(){
+      console.log("Failed");
+    })
+    
+   }
 }
 
 
 export class AboutController {
-  constructor() {
-    this.message = 'about page';
-    this.i = 0;
-    this.txt = "hello world";
-    this.speed = 1000;
+  constructor($scope, $q, $timeout) {
 
-    var scope = this;
+    $scope.i = 0;
+    $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
+    $scope.speed = 50; /* The speed/duration of the effect in milliseconds */
 
-    this.typeWriter = function () {
-      console.log("test1");
+    /*this.$onInit = function(){
+      $scope.typeWriter('Test MOFO DAMN THIS TOOKO SO LONG', 'demo')
+    } */
 
-      if (scope.i < scope.txt.length) {
-        document.getElementById("demo").innerHTML += scope.txt.charAt(scope.i);
-        scope.i++;
-        setTimeout(scope.typeWriter, scope.speed);
-        console.log("test", scope.txt.length);
+    function asyncWrite(text, id) {
+      return $q(function(resolve, reject){
+        if ($scope.i < text.length) {
+          document.getElementById(id).innerHTML += text.charAt($scope.i);
+          $scope.i++;
+  
+          $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
+        } else {
+          $scope.i=0;
+          resolve();
+        }
+      })
+    }
+ 
+    $scope.typeWriter("some text", "demo").then(function(){
+      $scope.typeWriter("text2", "demo2");
+    })
+   
+    
+    $scope.typeWriter = function (text, id) {
+
+      var defer = $q.defer();
+      
+      if ($scope.i < text.length) {
+        document.getElementById(id).innerHTML += text.charAt($scope.i);
+        $scope.i++;
+
+        $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
+      } else {
+        $scope.i=0;
+        defer.resolve(true)
       }
 
+      return defer.promise;
     }
-    this.typeWriter();
+
+    
   }
 }
+
+
 export class skillsCtrl {
   constructor() {
     this.message = '';
   }
 }
+
+
 export class contactCtrl {
   constructor() {
     this.message = 'ContactCtrl message ';

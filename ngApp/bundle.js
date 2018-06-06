@@ -49025,67 +49025,86 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var HomeController = exports.HomeController = function HomeController($q) {
+var HomeController = exports.HomeController = function HomeController($scope, $q, $timeout) {
   _classCallCheck(this, HomeController);
 
-  this.message = 'hello world';
-  this.list = ['Car', 'Bike', 'Legs'];
-  this.$q = $q;
-  this.message = 'about page';
-  this.i = 0;
-  this.txt = "hello world";
+  $scope.i = 0;
+  $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
+  $scope.speed = 100; /* The speed/duration of the effect in milliseconds */
 
-  this.speed = 500;
+  var deferred = $q.defer();
 
-  var scope = this;
-  scope.firstName = "Jesse Jones";
-  scope.Title = "Web Developer";
-  scope.Title2 = "Front End/ Back End Developer";
+  $scope.typeWriter = function (text, id) {
 
-  scope.wordFunction = function (text, id) {
-    var deferred = scope.$q.defer();
+    if ($scope.i < text.length) {
+      document.getElementById(id).innerHTML += text.charAt($scope.i);
+      $scope.i++;
 
-    if (scope.i < text.length) {
-      document.getElementById(id).innerHTML += text.charAt(scope.i);
-      scope.i++;
-      setTimeout(scope.wordFunction(text, id), scope.speed);
+      $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
     } else {
+      $scope.i = 0;
       deferred.resolve(true);
     }
 
     return deferred.promise;
   };
-  //onit type out first name then title then title 2
-  scope.wordFunction(scope.firstName, "Name").then(function () {
-    scope.i = 0;
-    setTimeout(scope.wordFunction(scope.Title, "Title").then(function () {
-      scope.i = 0;
-      setTimeout(scope.wordFunction(scope.Title2, "Title2"), 500);
-    }), 500);
+  $scope.typeWriter("Jesse Jones", "Name").then(function () {
+
+    deferred = $q.defer();
+    $scope.typeWriter("Web Developer", "Title").then(function () {
+      deferred = $q.defer();
+      $scope.typeWriter("Front End / Back End", "Title2");
+    });
+  }, function () {
+    console.log("Failed");
   });
 };
 
-var AboutController = exports.AboutController = function AboutController() {
+var AboutController = exports.AboutController = function AboutController($scope, $q, $timeout) {
   _classCallCheck(this, AboutController);
 
-  this.message = 'about page';
-  this.i = 0;
-  this.txt = "hello world";
-  this.speed = 1000;
+  $scope.i = 0;
+  $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
+  $scope.speed = 50; /* The speed/duration of the effect in milliseconds */
 
-  var scope = this;
+  /*this.$onInit = function(){
+    $scope.typeWriter('Test MOFO DAMN THIS TOOKO SO LONG', 'demo')
+  } */
 
-  this.typeWriter = function () {
-    console.log("test1");
+  function asyncWrite(text, id) {
+    return $q(function (resolve, reject) {
+      if ($scope.i < text.length) {
+        document.getElementById(id).innerHTML += text.charAt($scope.i);
+        $scope.i++;
 
-    if (scope.i < scope.txt.length) {
-      document.getElementById("demo").innerHTML += scope.txt.charAt(scope.i);
-      scope.i++;
-      setTimeout(scope.typeWriter, scope.speed);
-      console.log("test", scope.txt.length);
+        $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
+      } else {
+        $scope.i = 0;
+        resolve();
+      }
+    });
+  }
+
+  $scope.typeWriter("some text", "demo").then(function () {
+    $scope.typeWriter("text2", "demo2");
+  });
+
+  $scope.typeWriter = function (text, id) {
+
+    var defer = $q.defer();
+
+    if ($scope.i < text.length) {
+      document.getElementById(id).innerHTML += text.charAt($scope.i);
+      $scope.i++;
+
+      $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
+    } else {
+      $scope.i = 0;
+      defer.resolve(true);
     }
+
+    return defer.promise;
   };
-  this.typeWriter();
 };
 
 var skillsCtrl = exports.skillsCtrl = function skillsCtrl() {
