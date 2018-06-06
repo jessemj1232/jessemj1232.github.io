@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docbase="C:\Documents and Settings\Mizusumashi\My Documents\My Pictures\ウィキペディア\ロゴ\完全新作"
+   sodipodi:docname="ウ.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="44.030478"
+     inkscape:cy="125.54076"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1024"
+     inkscape:window-height="708"
+     inkscape:window-x="0"
+     inkscape:window-y="26" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(499.918,-8.57059)">
+    <path
+       sodipodi:nodetypes="ccccssssscssssssssscssc"
+       id="path4123"
+       d="M -393.26843,57.803797 C -381.94254,60.411647 -382.79633,61.625987 -382.79968,85.803797 L -418.86218,86.897547 C -423.41901,81.129427 -439.62226,77.089587 -444.08093,84.147547 C -436.48707,86.496917 -436.12477,89.633827 -434.76843,100.27255 C -432.63996,116.96781 -432.8006,123.87265 -433.45593,128.4913 C -434.7094,137.32542 -435.35413,139.7155 -427.29968,146.4288 C -423.29543,149.7663 -416.90364,153.84201 -415.19794,149.92198 C -411.29819,140.95961 -414.96658,128.82391 -415.41519,118.69746 C -415.74512,111.24986 -415.99794,103.96208 -416.17468,97.897547 C -416.17468,97.897547 -358.26432,96.141927 -337.59903,95.580387 C -330.40138,95.384807 -328.74148,96.403967 -329.95593,102.8038 C -338.94192,150.15746 -365.5268,191.25854 -409.36218,220.0538 C -413.45275,222.74089 -412.55205,223.99733 -408.26843,222.2413 C -358.76743,201.94882 -322.52277,165.23679 -310.23718,113.2413 C -309.3181,109.35157 -307.37769,105.99676 -305.14343,103.3038 C -297.54368,94.143767 -296.85927,97.191417 -310.45593,84.647547 C -321.42698,74.526017 -319.25685,75.042897 -328.23718,80.460047 C -333.58542,83.686237 -334.87348,84.395447 -340.12208,84.548317 C -347.36427,84.759257 -364.98718,85.272547 -364.98718,85.272547 C -364.98507,73.067497 -364.78388,69.961907 -362.45593,66.960047 C -357.55775,60.643917 -358.87656,59.772077 -371.92468,53.335047 C -384.31998,47.220067 -385.13168,50.322227 -393.26843,57.803797 z "
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:17.60000038;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

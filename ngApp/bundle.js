@@ -93,7 +93,7 @@ var _controllers = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('starterkit', [_angularUiRouter2.default, _angularResource2.default, _angularBootstrapNpm2.default]).config(routing);
+_angular2.default.module('starterkit', [_angularUiRouter2.default, _angularResource2.default, _angularBootstrapNpm2.default, 'ngAnimate']).config(routing);
 
 routing.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function routing($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -49048,63 +49048,32 @@ var HomeController = exports.HomeController = function HomeController($scope, $q
 
     return deferred.promise;
   };
+  var init = false;
+  $scope.show_options = true;
+  $scope.loading_message = "";
+  $scope.show_demo = true;
+
+  setTimeout(function () {
+    var loading_screen = pleaseWait({
+      logo: "/ngApp/content/u.svg",
+      backgroundColor: '#f46d3b',
+      loadingHtml: "<p class='loading-message'>Loading, please wait...<p><div class='spinner'><div class='double-bounce1'></div><div class='double-bounce2'></div></div>"
+    });
+  }, 2000);
   $scope.typeWriter("Jesse Jones", "Name").then(function () {
 
     deferred = $q.defer();
     $scope.typeWriter("Web Developer", "Title").then(function () {
       deferred = $q.defer();
-      $scope.typeWriter("Front End / Back End", "Title2");
+      $scope.typeWriter("Front End / Back End Developer", "Title2");
     });
   }, function () {
     console.log("Failed");
   });
 };
 
-var AboutController = exports.AboutController = function AboutController($scope, $q, $timeout) {
+var AboutController = exports.AboutController = function AboutController() {
   _classCallCheck(this, AboutController);
-
-  $scope.i = 0;
-  $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
-  $scope.speed = 50; /* The speed/duration of the effect in milliseconds */
-
-  /*this.$onInit = function(){
-    $scope.typeWriter('Test MOFO DAMN THIS TOOKO SO LONG', 'demo')
-  } */
-
-  function asyncWrite(text, id) {
-    return $q(function (resolve, reject) {
-      if ($scope.i < text.length) {
-        document.getElementById(id).innerHTML += text.charAt($scope.i);
-        $scope.i++;
-
-        $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
-      } else {
-        $scope.i = 0;
-        resolve();
-      }
-    });
-  }
-
-  $scope.typeWriter("some text", "demo").then(function () {
-    $scope.typeWriter("text2", "demo2");
-  });
-
-  $scope.typeWriter = function (text, id) {
-
-    var defer = $q.defer();
-
-    if ($scope.i < text.length) {
-      document.getElementById(id).innerHTML += text.charAt($scope.i);
-      $scope.i++;
-
-      $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
-    } else {
-      $scope.i = 0;
-      defer.resolve(true);
-    }
-
-    return defer.promise;
-  };
 };
 
 var skillsCtrl = exports.skillsCtrl = function skillsCtrl() {

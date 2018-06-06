@@ -25,6 +25,20 @@ export class HomeController {
 
        return deferred.promise;
      }
+     var init = false;
+    $scope.show_options = true;
+    $scope.loading_message = "";
+    $scope.show_demo = true;
+
+
+    
+    setTimeout(function(){
+      var loading_screen = pleaseWait({
+        logo: "/ngApp/content/u.svg",
+        backgroundColor: '#f46d3b',
+        loadingHtml: "<p class='loading-message'>Loading, please wait...<p><div class='spinner'><div class='double-bounce1'></div><div class='double-bounce2'></div></div>"
+      });
+    }, 2000);
      $scope.typeWriter("Jesse Jones", "Name").then(function(){
 
       deferred = $q.defer();
@@ -41,53 +55,8 @@ export class HomeController {
 
 
 export class AboutController {
-  constructor($scope, $q, $timeout) {
+  constructor() {
 
-    $scope.i = 0;
-    $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
-    $scope.speed = 50; /* The speed/duration of the effect in milliseconds */
-
-    /*this.$onInit = function(){
-      $scope.typeWriter('Test MOFO DAMN THIS TOOKO SO LONG', 'demo')
-    } */
-
-    function asyncWrite(text, id) {
-      return $q(function(resolve, reject){
-        if ($scope.i < text.length) {
-          document.getElementById(id).innerHTML += text.charAt($scope.i);
-          $scope.i++;
-  
-          $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
-        } else {
-          $scope.i=0;
-          resolve();
-        }
-      })
-    }
- 
-    $scope.typeWriter("some text", "demo").then(function(){
-      $scope.typeWriter("text2", "demo2");
-    })
-   
-    
-    $scope.typeWriter = function (text, id) {
-
-      var defer = $q.defer();
-      
-      if ($scope.i < text.length) {
-        document.getElementById(id).innerHTML += text.charAt($scope.i);
-        $scope.i++;
-
-        $timeout($scope.typeWriter.bind(null, text, id), $scope.speed);
-      } else {
-        $scope.i=0;
-        defer.resolve(true)
-      }
-
-      return defer.promise;
-    }
-
-    
   }
 }
 

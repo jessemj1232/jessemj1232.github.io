@@ -4,7 +4,7 @@ import ngResource from 'angular-resource';
 import uiBootstrap from 'angular-bootstrap-npm';
 import { HomeController, AboutController, skillsCtrl, contactCtrl } from './controllers/controllers';
 
-angular.module('starterkit', [uirouter, ngResource, uiBootstrap, ngAnimate]).config(routing);
+angular.module('starterkit', [uirouter, ngResource, uiBootstrap, 'ngAnimate']).config(routing);
 
 
 routing.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
