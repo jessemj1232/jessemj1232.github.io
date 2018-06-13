@@ -1,11 +1,16 @@
 export class HomeController {
-   constructor($scope, $q, $timeout) {
+  constructor($scope, $q, $timeout) {
 
-     $scope.i = 0;
-     $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
-     $scope.speed = 100; /* The speed/duration of the effect in milliseconds */
+    var loading_screen = pleaseWait({
+      logo: "/ngApp/content/u.svg",
+      backgroundColor: '#f46d3b',
+      loadingHtml: "<p class='loading-message'>Loading, please wait...<p><div class='spinner'><div class='double-bounce1'></div><div class='double-bounce2'></div></div>"
+    });
 
-     var deferred = $q.defer();
+    $scope.i = 0;
+    $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
+    $scope.speed = 75 /* The speed/duration of the effect in milliseconds */
+    var deferred = $q.defer();
    
     
      $scope.typeWriter = function (text, id) {
@@ -25,45 +30,58 @@ export class HomeController {
 
        return deferred.promise;
      }
-     var init = false;
-    $scope.show_options = true;
-    $scope.loading_message = "";
-    $scope.show_demo = true;
 
 
-    
-    setTimeout(function(){
-      var loading_screen = pleaseWait({
-        logo: "/ngApp/content/u.svg",
-        backgroundColor: '#f46d3b',
-        loadingHtml: "<p class='loading-message'>Loading, please wait...<p><div class='spinner'><div class='double-bounce1'></div><div class='double-bounce2'></div></div>"
-      });
-    }, 2000);
-     $scope.typeWriter("Jesse Jones", "Name").then(function(){
 
-      deferred = $q.defer();
-      $scope.typeWriter("Web Developer", "Title").then(function(){
+    function finishLoad() {
+      loading_screen.finish();
+    }
+
+    setTimeout(finishLoad, 3000);
+    setTimeout(typewriting, 3800);
+
+
+    function typewriting() {
+
+      $scope.typeWriter("Jesse Jones", "Name").then(function () {
+
         deferred = $q.defer();
-        $scope.typeWriter("Front End / Back End Developer", "Title2")
-      });
-    }, function(){
-      console.log("Failed");
-    })
-    
-   }
+        $scope.typeWriter("Web Developer", "Title").then(function () {
+          deferred = $q.defer();
+          $scope.typeWriter("Front End / Back End Developer", "Title2")
+        });
+      }, function () {
+        console.log("Failed");
+      })
+
+    }
+  }
 }
 
 
 export class AboutController {
   constructor() {
-
+    
   }
 }
 
 
 export class skillsCtrl {
   constructor() {
-    this.message = '';
+    window.onload = function() {
+      try {
+        TagCanvas.Start('myCanvas','tags',{
+          textColour: '#ff0000',
+          outlineColour: '#ff00ff',
+          reverse: true,
+          depth: 0.8,
+          maxSpeed: 0.05
+        });
+      } catch(e) {
+        // something went wrong, hide the canvas container
+        document.getElementById('myCanvasContainer').style.display = 'none';
+      }
+    };
   }
 }
 

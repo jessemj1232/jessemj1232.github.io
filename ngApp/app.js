@@ -38,7 +38,18 @@ function routing($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: contactCtrl,
       controllerAs: 'controller'
 
+    })
+    .state('model', {
+      url: '/model',
+      templateUrl: '/ngApp/views/model.html',
+      controller: contactCtrl,
+      controllerAs: 'controller'
+
     });
   $urlRouterProvider.otherwise('/notFound');
   $locationProvider.html5Mode(true);
+  
+
+  
+
 }

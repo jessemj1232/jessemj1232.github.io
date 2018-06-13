@@ -30,9 +30,11 @@
     "morgan": "~1.7.0",
     "please-wait": "0.0.5",
     "serve-favicon": "~2.3.0",
+    "three": "^0.93.0",
     "webpack": "^2.1.0-beta.21"
   },
   "devDependencies": {
+    "@types/three": "^0.92.4",
     "coffeescript": "^2.3.1"
   }
 }

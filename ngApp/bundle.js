@@ -121,6 +121,12 @@ function routing($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: _controllers.contactCtrl,
     controllerAs: 'controller'
 
+  }).state('model', {
+    url: '/model',
+    templateUrl: '/ngApp/views/model.html',
+    controller: _controllers.contactCtrl,
+    controllerAs: 'controller'
+
   });
   $urlRouterProvider.otherwise('/notFound');
   $locationProvider.html5Mode(true);
@@ -49028,10 +49034,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var HomeController = exports.HomeController = function HomeController($scope, $q, $timeout) {
   _classCallCheck(this, HomeController);
 
+  var loading_screen = pleaseWait({
+    logo: "/ngApp/content/u.svg",
+    backgroundColor: '#f46d3b',
+    loadingHtml: "<p class='loading-message'>Loading, please wait...<p><div class='spinner'><div class='double-bounce1'></div><div class='double-bounce2'></div></div>"
+  });
+
   $scope.i = 0;
   $scope.txt = 'Lorem ipsum typing effect!'; /* The text */
-  $scope.speed = 100; /* The speed/duration of the effect in milliseconds */
-
+  $scope.speed = 75; /* The speed/duration of the effect in milliseconds */
   var deferred = $q.defer();
 
   $scope.typeWriter = function (text, id) {
@@ -49048,28 +49059,27 @@ var HomeController = exports.HomeController = function HomeController($scope, $q
 
     return deferred.promise;
   };
-  var init = false;
-  $scope.show_options = true;
-  $scope.loading_message = "";
-  $scope.show_demo = true;
 
-  setTimeout(function () {
-    var loading_screen = pleaseWait({
-      logo: "/ngApp/content/u.svg",
-      backgroundColor: '#f46d3b',
-      loadingHtml: "<p class='loading-message'>Loading, please wait...<p><div class='spinner'><div class='double-bounce1'></div><div class='double-bounce2'></div></div>"
-    });
-  }, 2000);
-  $scope.typeWriter("Jesse Jones", "Name").then(function () {
+  function finishLoad() {
+    loading_screen.finish();
+  }
 
-    deferred = $q.defer();
-    $scope.typeWriter("Web Developer", "Title").then(function () {
+  setTimeout(finishLoad, 3000);
+  setTimeout(typewriting, 3800);
+
+  function typewriting() {
+
+    $scope.typeWriter("Jesse Jones", "Name").then(function () {
+
       deferred = $q.defer();
-      $scope.typeWriter("Front End / Back End Developer", "Title2");
+      $scope.typeWriter("Web Developer", "Title").then(function () {
+        deferred = $q.defer();
+        $scope.typeWriter("Front End / Back End Developer", "Title2");
+      });
+    }, function () {
+      console.log("Failed");
     });
-  }, function () {
-    console.log("Failed");
-  });
+  }
 };
 
 var AboutController = exports.AboutController = function AboutController() {
@@ -49079,7 +49089,20 @@ var AboutController = exports.AboutController = function AboutController() {
 var skillsCtrl = exports.skillsCtrl = function skillsCtrl() {
   _classCallCheck(this, skillsCtrl);
 
-  this.message = '';
+  window.onload = function () {
+    try {
+      TagCanvas.Start('myCanvas', 'tags', {
+        textColour: '#ff0000',
+        outlineColour: '#ff00ff',
+        reverse: true,
+        depth: 0.8,
+        maxSpeed: 0.05
+      });
+    } catch (e) {
+      // something went wrong, hide the canvas container
+      document.getElementById('myCanvasContainer').style.display = 'none';
+    }
+  };
 };
 
 var contactCtrl = exports.contactCtrl = function contactCtrl() {
