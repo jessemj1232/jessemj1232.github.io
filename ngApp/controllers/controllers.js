@@ -67,8 +67,8 @@ export class AboutController {
 
 
 export class skillsCtrl {
-  constructor() {
-    window.onload = function() {
+  constructor($scope) {
+    $scope.sphereView = function() {
       try {
         TagCanvas.Start('myCanvas','tags',{
           textColour: '#ff0000',
@@ -82,7 +82,11 @@ export class skillsCtrl {
         document.getElementById('myCanvasContainer').style.display = 'none';
       }
     };
+    this.$onInit = function(){
+      $scope.sphereView();
+    }
   }
+
 }
 
 

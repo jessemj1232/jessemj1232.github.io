@@ -121,12 +121,6 @@ function routing($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: _controllers.contactCtrl,
     controllerAs: 'controller'
 
-  }).state('model', {
-    url: '/model',
-    templateUrl: '/ngApp/views/model.html',
-    controller: _controllers.contactCtrl,
-    controllerAs: 'controller'
-
   });
   $urlRouterProvider.otherwise('/notFound');
   $locationProvider.html5Mode(true);
@@ -49086,10 +49080,10 @@ var AboutController = exports.AboutController = function AboutController() {
   _classCallCheck(this, AboutController);
 };
 
-var skillsCtrl = exports.skillsCtrl = function skillsCtrl() {
+var skillsCtrl = exports.skillsCtrl = function skillsCtrl($scope) {
   _classCallCheck(this, skillsCtrl);
 
-  window.onload = function () {
+  $scope.sphereView = function () {
     try {
       TagCanvas.Start('myCanvas', 'tags', {
         textColour: '#ff0000',
@@ -49102,6 +49096,9 @@ var skillsCtrl = exports.skillsCtrl = function skillsCtrl() {
       // something went wrong, hide the canvas container
       document.getElementById('myCanvasContainer').style.display = 'none';
     }
+  };
+  this.$onInit = function () {
+    $scope.sphereView();
   };
 };
 

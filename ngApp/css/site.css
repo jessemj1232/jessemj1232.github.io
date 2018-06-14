@@ -65,3 +65,7 @@ img{
       -webkit-transform: scale(1.0);
     }
   }
+
+  .loading-message{
+    font-family: 'Tangerine', cursive;
+  }
