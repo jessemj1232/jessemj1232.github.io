@@ -49068,7 +49068,10 @@ var HomeController = exports.HomeController = function HomeController($scope, $q
       deferred = $q.defer();
       $scope.typeWriter("Web Developer", "Title").then(function () {
         deferred = $q.defer();
-        $scope.typeWriter("Front End / Back End Developer", "Title2");
+        $scope.typeWriter("Front End / Back End Developer", "Title2").then(function () {
+          deferred = $q.defer();
+          $scope.typeWriter("Contact Me", "TypedButton");
+        });
       });
     }, function () {
       console.log("Failed");
@@ -49086,11 +49089,11 @@ var skillsCtrl = exports.skillsCtrl = function skillsCtrl($scope) {
   $scope.sphereView = function () {
     try {
       TagCanvas.Start('myCanvas', 'tags', {
-        textColour: '#ff0000',
-        outlineColour: '#ff00ff',
+        textColour: '#dbba0b',
+        outlineColour: '#dbba0b',
         reverse: true,
-        depth: 0.8,
-        maxSpeed: 0.05
+        depth: 1.3,
+        maxSpeed: 0.08
       });
     } catch (e) {
       // something went wrong, hide the canvas container

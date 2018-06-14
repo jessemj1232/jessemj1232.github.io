@@ -1,4 +1,6 @@
-
+body {
+  background: #ddd;
+}
 .selfimg {
     height:100%;
     width:100%;
@@ -69,3 +71,10 @@ img{
   .loading-message{
     font-family: 'Tangerine', cursive;
   }
+.btn-link {
+  border: solid 0.5px gold;
+  color: gold;
+}
+.listClass {
+  border-left: solid 0.5px gold;
+}
