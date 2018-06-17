@@ -49028,6 +49028,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var HomeController = exports.HomeController = function HomeController($scope, $q, $timeout) {
   _classCallCheck(this, HomeController);
 
+  $scope.button = document.getElementById('TypedButton');
+  function toggleButton() {
+    $scope.button.classList.toggle('fade');
+  }
+
   var loading_screen = pleaseWait({
     logo: "/ngApp/content/u.svg",
     backgroundColor: '#f46d3b',
@@ -49060,6 +49065,8 @@ var HomeController = exports.HomeController = function HomeController($scope, $q
 
   setTimeout(finishLoad, 3000);
   setTimeout(typewriting, 3800);
+  // setTimeout(toggleButton, 4000);
+
 
   function typewriting() {
 
@@ -49069,8 +49076,7 @@ var HomeController = exports.HomeController = function HomeController($scope, $q
       $scope.typeWriter("Web Developer", "Title").then(function () {
         deferred = $q.defer();
         $scope.typeWriter("Front End / Back End Developer", "Title2").then(function () {
-          deferred = $q.defer();
-          $scope.typeWriter("Contact Me", "TypedButton");
+          toggleButton();
         });
       });
     }, function () {
