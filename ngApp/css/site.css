@@ -1,5 +1,7 @@
+
 body {
-  background: #ddd;
+  background: #343434;
+  color:white;
 }
 .selfimg {
     height:100%;
@@ -82,7 +84,7 @@ img{
   padding-top: 10px;
 }
 .fa-github-square, .fa-linkedin {
-  font-size: 5em;
+  font-size: 1em;
 }
 .fa-github-square:hover {
   color: red;
@@ -93,6 +95,14 @@ img{
 .fa-github-square {
   padding-right:10px
 }
-.navbar .navbar-nav .navbar-expand-lg .navbar-dark .bg-dark a {
-  color: red !important;
+
+#Title2 {
+  color:grey;
+}
+#homeLink, #aboutLink, #skillsLink  {
+  border-right: 1px solid red;
+}
+#aboutTitle{
+  color:red;
+  padding-left:10px;
 }
