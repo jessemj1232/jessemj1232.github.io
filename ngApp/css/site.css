@@ -74,10 +74,7 @@ img{
     font-family: 'Tangerine', cursive;
   }
 .btn-link {
-  border: solid 0.5px red ;
-  color: red;
-  opacity: 0;
-  transition: opacity 3s;
+  
 }
 .listClass {
   border-left: solid 0.5px gold;
@@ -108,18 +105,42 @@ img{
 #homeLink, #aboutLink, #skillsLink  {
   border-right: 1px solid red;
   transition: font-size 1s;
+  font-size:1em;
 }
 #contactLink{
   transition:font-size 1s;
+  font-size: 1em;
 }
 #aboutTitle{
   color:red;
-  padding-left:10px;
+  font-family:'Fugaz One', cursive;
 }
+
 #aboutLink:hover, #skillsLink:hover, #contactLink:hover, #homeLink:hover {
 font-size:1.1em;
+}
+#TypedButton {
+  border: solid 0.5px red ;
+  color: red;
+  opacity: 0;
+  transition: opacity 5s;
+
 }
 
 #TypedButton.fade {
   opacity: 1;
+  transition: font-size 2s;
 }
+#TypedButton {
+  color:red;
+  transition: font-size 1s;
+}
+
+#TypedButton:hover {
+  font-size: 1.1em;
+  color:red;
+  background-color: grey;
+  text-decoration:none;
+}
+
+

@@ -6,7 +6,7 @@ export class HomeController {
     $scope.button = document.getElementById('TypedButton');
     function toggleButton() {
       $scope.button.classList.toggle('fade');
-    } 
+    }
 
 
 
@@ -48,7 +48,7 @@ export class HomeController {
 
     setTimeout(finishLoad, 3000);
     setTimeout(typewriting, 3800);
-   // setTimeout(toggleButton, 4000);
+    // setTimeout(toggleButton, 4000);
 
 
 
@@ -69,8 +69,10 @@ export class HomeController {
       })
 
     }
+
   }
 }
+
 
 
 export class AboutController {
