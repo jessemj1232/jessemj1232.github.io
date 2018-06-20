@@ -1,0 +1,154 @@
+
+body {
+    background: #343434;
+    color:white;
+  }
+  .selfimg {
+      height:100%;
+      width:100%;
+  }
+  img{
+      height: 10%;
+      width: 10%;
+  }
+  .nav, .pagination, .carousel, .panel-title a { 
+      cursor: pointer;
+   }
+   #brandImg {
+       height: 50px;
+       width: 50px;
+   }
+  
+   .view.ng-enter {
+      transition:1s linear all;
+      opacity:0;
+  }
+  
+  .view.ng-enter-active {
+      opacity: 1;
+  }
+  
+  .spinner {
+      width: 40px;
+      height: 40px;
+    
+      position: relative;
+      margin: 100px auto;
+    }
+    
+    .double-bounce1, .double-bounce2 {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #333;
+      opacity: 0.6;
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+      -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+      animation: sk-bounce 2.0s infinite ease-in-out;
+    }
+    
+    .double-bounce2 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+    
+    @-webkit-keyframes sk-bounce {
+      0%, 100% { -webkit-transform: scale(0.0) }
+      50% { -webkit-transform: scale(1.0) }
+    }
+    
+    @keyframes sk-bounce {
+      0%, 100% { 
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+      } 50% { 
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+    }
+  
+    .loading-message{
+      font-family: 'Tangerine', cursive;
+    }
+  .listClass {
+    border-left: solid 0.5px gold;
+  }
+  #homeRow {
+    padding-top: 10px;
+  }
+  .fa-github-square, .fa-linkedin {
+    color: white;
+    font-size: 5em;
+    transition: font-size 1s;
+    
+  }
+  .fa-github-square:hover {
+    color: gold;
+    font-size :5.5em;
+  }
+  .fa-linkedin:hover {
+    color: gold;
+    font-size : 5.5em;
+  }
+  .fa-github-square {
+    padding-right:10px
+  }
+  
+  #Title2 {
+    color:grey;
+  }
+  #homeLink, #aboutLink, #skillsLink  {
+    border-right: 1px solid gold;
+    transition: font-size 1s;
+    font-size:1em;
+  }
+  #contactLink{
+    transition:font-size 1s;
+    font-size: 1em;
+  }
+  #aboutTitle{
+    color:gold;
+    font-family:'Fugaz One', cursive;
+  }
+  
+  #aboutLink:hover, #skillsLink:hover, #contactLink:hover, #homeLink:hover {
+  font-size:1.1em;
+  }
+  #TypedButton {
+    border: solid 0.5px gold ;
+    color: gold;
+    opacity: 0;
+    transition: opacity 5s;
+  
+  }
+  
+  #TypedButton.fade {
+    opacity: 1;
+    transition: font-size 2s;
+  }
+  #TypedButton {
+    color:gold;
+    transition: font-size 1s;
+  }
+  
+  #TypedButton:hover {
+    font-size: 1.1em;
+    color:gold;
+    background-color: grey;
+    text-decoration:none;
+  }
+  #Name, #Title, #Title2, #skillsTitle, #contactTitle {
+    font-family: 'Fugaz One', cursive;
+  }
+  
+  #hrID {
+    border-top:1px solid gold;
+  }
+  
+  
+  
+  /* ANIMATIONS */
+  
