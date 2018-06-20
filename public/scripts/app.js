@@ -1,8 +1,6 @@
-var resumeApp = angular.module('resumeApp', ['ui.router', 'ngResource']);
+var resumeApp = angular.module('resumeApp', ['ui.router', 'ngResource', 'ngAnimate']);
 
 resumeApp.controller('HomeController', ['$scope', '$q', '$timeout', function ($scope, $q, $timeout) {
-    $scope.greeting = 'Resume App test'
-
 
     $scope.button = document.getElementById('TypedButton');
     function toggleButton() {
@@ -109,12 +107,16 @@ function routing($stateProvider, $urlRouterProvider, $locationProvider) {
 
 resumeApp.controller('AboutController', [ function(){
 
+   
+  
 }])
 
 
 
 
 resumeApp.controller('SkillsController', ['$scope', function ($scope){
+
+    $scope.pageClass = 'page-skills';
 
     $scope.sphereView = function () {
         try {
